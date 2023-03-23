@@ -3,7 +3,7 @@ ppipeline {
     stages{
         stage('docker image build') {
             steps {
-               sh 'docker build  main.py .'
+               sh 'docker build .'
         stage('Checkout') {
             steps {
                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Patlollavinod/jenkins_docker_task.git']]])
