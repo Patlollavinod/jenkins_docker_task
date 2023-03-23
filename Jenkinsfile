@@ -11,7 +11,7 @@ ppipeline {
         }
         stage('Run python program') {
             steps {
-                git branch: 'main', url: 'https://github.com/Patlollavinod/jenkins_docker_task.git'
+                 git branch: 'main', url: 'https://github.com/Patlollavinod/jenkins_docker_task.git'
                 sh 'python main.py '
             }
         }                 
