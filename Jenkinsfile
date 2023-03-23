@@ -6,13 +6,13 @@ ppipeline {
                sh 'docker build  main.py .'
         stage('Checkout') {
             steps {
-               checkout([$class: 'GitSCM', branches: [[name: '*/feat-project2']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/prjpracticeteam/githubpractice.git']]])
+               checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Patlollavinod/jenkins_docker_task.git']]])
             }
         }
         stage('Run python program') {
             steps {
-                git branch: 'feat-project2', url: 'https://github.com/prjpracticeteam/githubpractice.git'
-                sh 'python hashmap.py L1.txt L2.txt R.txt'
+                git branch: 'main', url: 'https://github.com/Patlollavinod/jenkins_docker_task.git'
+                sh 'python main.py '
             }
         }                 
            }
