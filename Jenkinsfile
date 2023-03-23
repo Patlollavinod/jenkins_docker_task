@@ -2,10 +2,8 @@ ppipeline {
     agent any
     stages{
         stage('docker image build') {
-        steps {
-            sh """
-                docker build -t main.py  .
-        """
+            steps {
+               sh 'docker build  main.py .'
         stage('Checkout') {
             steps {
                checkout([$class: 'GitSCM', branches: [[name: '*/feat-project2']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/prjpracticeteam/githubpractice.git']]])
