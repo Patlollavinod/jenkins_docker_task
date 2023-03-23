@@ -1,21 +1,20 @@
-ppipeline {
+pipeline {
     agent any
-    stages{
-        stage('docker image build') {
+    stages {
+        stage('docker image  build') {
             steps {
-               sh 'docker build .'
-        stage('Checkout') {
-            steps {
-               checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Patlollavinod/jenkins_docker_task.git']]])
+                sh 'docker build .'
             }
         }
-        stage('Run python program') {
-            steps {
-                 git branch: 'main', url: 'https://github.com/Patlollavinod/jenkins_docker_task.git'
-                sh 'python main.py '
+        stage('checkout '){
+            steps{
+                checkout([$class: 'GitSCM', branches: [[name: '*/feat-project2']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/prjpracticeteam/githubpractice.git']]])
             }
-        }                 
-           }
+        }
+        stage('git '){
+            steps{
+              git branch: 'main', url: 'https://github.com/Patlollavinod/jenkins_docker_task.git'
+            }
         }
     }
 }
